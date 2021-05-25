@@ -1,7 +1,21 @@
+@charset "UTF-8";
 body {
   margin: 20px;
   background: url("./image.png");
   text-align: center;
+  font-family: sans-serif;
+  padding: 30px;
+  background: #ededed;
+}
+
+h1 {
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #08a3d9;
+  text-transform: uppercase;
+  font-size: 30px;
+  color: #000380;
 }
 
 .balloon {
@@ -28,7 +42,7 @@ body {
   }
 }
 .balloon:before {
-  content: "o";
+  content: "▲";
   font-size: 20px;
   color: #5979a6;
   display: block;
