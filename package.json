@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:scss": "sass --watch main.scss main.css"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/srijakon/Game#readme",
   "dependencies": {
-    "jest": "^27.0.1"
+    "jest": "^27.0.1",
+    "sass": "^1.32.8"
   }
 }
