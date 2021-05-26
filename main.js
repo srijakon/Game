@@ -1,27 +1,48 @@
-let popped = 0;
+let popped = 0; //Declaring popped balloons as 0 first
 
-const balloons = document.querySelectorAll(".balloon");
+let pop = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]; //Declaring an array for balloons to be popped
+
+const balloons = document.querySelectorAll(".balloon"); //selecting the balloon class
+
 balloons.forEach((balloon) => {
-  document.addEventListener("click", (e) => {
-    if (e.target.className === "balloon") {
-      e.target.style.backgroundColor = "#ededed";
-      e.target.textContent = "POP!";
-      popped++;
-      removeEvent(e);
-      checkAllPopped();
+  //Using forEach loop to go through the balloons
+  document.addEventListener("click", (event) => {
+    //Triggering an event when the balloon is clicked
+    if (event.target.className === "balloon") {
+      // console.log("Target: :" + e.target.id);
+
+      // console.log("Balloon: :" + balloon.id);
+
+      if (event.target.id == balloon.id) {
+        pop.splice(pop.indexOf(event.target.id), 1);
+
+        event.target.style.backgroundColor = "#ededed";
+
+        event.target.textContent = "POP!";
+
+        popped++;
+
+        removeEvent(event);
+
+        checkAllPopped();
+      }
     }
   });
 });
-function removeEvent(e) {
-  e.target.removeEventListener("click", function () {});
+function removeEvent(event) {
+  event.target.removeEventListener("click", function () {});
 }
 
-function checkAllPopped() {
-  if (popped === 11) {
-    console.log("all popped!");
-    let gallery = document.querySelector("#balloon-gallery");
-    let message = document.querySelector("#no-balloons");
-    gallery.innerHTML = "";
-    message.style.display = "block";
-  }
-}
+// function checkAllPopped() {
+//   if (pop.length == 0) {
+//     console.log("all popped!");
+
+//     let gallery = document.querySelector("#balloon-gallery");
+
+//     let message = document.querySelector("#no-balloons");
+
+//     gallery.innerHTML = "";
+
+//     message.style.display = "block";
+//   }
+// }
