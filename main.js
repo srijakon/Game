@@ -33,16 +33,16 @@ function removeEvent(event) {
   event.target.removeEventListener("click", function () {});
 }
 
-// function checkAllPopped() {
-//   if (pop.length == 0) {
-//     console.log("all popped!");
+function checkAllPopped() {
+  if (pop.length === 0) {
+    console.log("all popped!");
 
-//     let gallery = document.querySelector("#balloon-gallery");
+    let gallery = document.querySelector("#balloon-gallery");
 
-//     let message = document.querySelector("#no-balloons");
+    let message = document.querySelector("#no-balloons");
 
-//     gallery.innerHTML = "";
+    gallery.innerHTML = "";
 
-//     message.style.display = "block";
-//   }
-// }
+    message.style.display = "block";
+  }
+}
