@@ -1,20 +1,22 @@
 body {
   margin: 20px;
-  background: url("./image.png");
+  background-image: url("./color.jpg");
   text-align: center;
   font-family: sans-serif;
   padding: 30px;
-  background: #ededed;
 }
 
 h1 {
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  color: #08a3d9;
-  text-transform: uppercase;
-  font-size: 30px;
-  color: #000380;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-transform: lowercase;
+  text-decoration: wavy;
+  font-style: italic;
+  font-weight: lighter;
+  font-variant: normal;
+  font-size: 20px;
+  z-index: 30;
 }
 
 .balloon {
