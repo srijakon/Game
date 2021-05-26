@@ -16,7 +16,6 @@ h1 {
   font-weight: lighter;
   font-variant: normal;
   font-size: 20px;
-  z-index: 30;
 }
 
 .balloon {
@@ -26,18 +25,16 @@ h1 {
   background: hsl(215, 50%, 65%);
   border-radius: 80%;
   position: relative;
-  box-shadow: inset -10px -10px 0 rgba(206, 156, 156, 0.07);
   margin: 20px 30px;
   transition: transform 0.5s ease;
   z-index: 9;
-  animation: balloons 3s ease-in-out infinite;
-  transform-origin: bottom center;
+  animation: balloons 5s ease-in-out infinite;
 }
 
 @keyframes balloons {
   0%,
   100% {
-    transform: translateY(0) rotate(-4deg);
+    transform: translateY() rotate(-3deg);
   }
   50% {
     transform: translateY(-25px) rotate(4deg);
@@ -52,33 +49,33 @@ h1 {
   text-align: center;
   width: 100%;
   position: absolute;
-  bottom: -8px;
+  bottom: -20px;
   z-index: -100;
 }
 
 .balloon:nth-child(2) {
   background: hsl(245, 40%, 65%);
-  animation-duration: 3.5s;
+  animation-duration: 5s;
 }
 
 .balloon:nth-child(3) {
   background: hsl(139, 50%, 60%);
-  animation-duration: 3s;
+  animation-duration: 5s;
 }
 
 .balloon:nth-child(4) {
   background: hsl(59, 50%, 68%);
-  animation-duration: 4.5s;
+  animation-duration: 5s;
 }
 
 .balloon:nth-child(5) {
   color: hsl(23, 44%, 46%);
-  animation-duration: 4.5s;
+  animation-duration: 5s;
 }
 
 .balloon:nth-child(6) {
   color: hsl(177, 39%, 56%);
-  animation-duration: 4s;
+  animation-duration: 5s;
 }
 .balloon:nth-child(7) {
   background: hsl(19, 86%, 59%);
