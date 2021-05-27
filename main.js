@@ -5,33 +5,34 @@ let pop = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]; //Declaring
 const balloons = document.querySelectorAll(".balloon"); //selecting the balloon class
 
 balloons.forEach((balloon) => {
-  //Using forEach loop to go through the balloons
-  document.addEventListener("click", (event) => {
-    //Triggering an event when the balloon is clicked
-    if (event.target.className === "balloon") {
-      // console.log("Target: :" + e.target.id);
 
-      // console.log("Balloon: :" + balloon.id);
+  //Using forEach loop to go through the balloons
+
+  document.addEventListener("click", (event) => {
+
+    //Triggering an event when the balloon is clicked
+
+    if (event.target.className === "balloon") {
+      
 
       if (event.target.id == balloon.id) {
+        
         pop.splice(pop.indexOf(event.target.id), 1);
 
-        event.target.style.backgroundColor = "#ededed";
+        // event.target.style.backgroundColor = "#ededed";
 
         event.target.textContent = "POP!";
 
-        popped++;
-
-        removeEvent(event);
+        // removeEvent(event);
 
         checkAllPopped();
       }
     }
   });
 });
-function removeEvent(event) {
-  event.target.removeEventListener("click", function () {});
-}
+// function removeEvent(event) {
+//   event.target.removeEventListener("click", function () {});
+// }
 
 function checkAllPopped() {
   if (pop.length === 0) {
