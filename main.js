@@ -7,7 +7,7 @@ const balloons = document.querySelectorAll(".balloon"); //selecting the balloon 
 balloons.forEach((balloon) => {
   //Using forEach loop to go through the balloons
 
-  document.addEventListener("click", (event) => {
+  document.addEventListener("mouseover", (event) => {
     //Triggering an event when the balloon is clicked
 
     if (event.target.className === "balloon") {
@@ -17,8 +17,6 @@ balloons.forEach((balloon) => {
         // event.target.style.backgroundColor = "#ededed";
 
         event.target.textContent = "POP!";
-
-        // removeEvent(event);
 
         checkAllPopped();
       }
@@ -36,6 +34,6 @@ function checkAllPopped() {
 
     gallery.innerHTML = "";
 
-    alert("All popped!");
+    // alert("All popped!");
   }
 }
