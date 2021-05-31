@@ -19,7 +19,9 @@ balloons.forEach((balloon) => {
     }
   });
 });
-
+// const removeBalloons = () => {
+//   if()
+// }
 function checkAllPopped() {
   if (pop.length === 0) {
     let gallery = document.querySelector("#balloon-gallery");
