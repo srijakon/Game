@@ -105,6 +105,9 @@ let timer = setInterval(() => {
     document.querySelector(".result").style.display = "block";
     document.querySelector(".restart").style.display = "block";
 
+    //     clearInterval(timer);
+    //   }
+    // }, 1000);
     clearInterval(timer);
   }
 }, 1000);
