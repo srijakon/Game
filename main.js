@@ -89,19 +89,22 @@ let timer = setInterval(() => {
     document.querySelector(".balloon").style.display = "none";
     document.querySelector(".countdown").style.display = "none";
 
-    // if (popped > highScore) {
-    //   document.querySelector(".result").innerHTML =
-    //     "Congratulations! You scored a new high of " + popped;
-    //   highScore = popped;
     if (popped > highScore) {
       document.querySelector(".result").innerHTML =
         "Congratulations! You scored a new high of " + popped;
       highScore = popped;
+      // } else {
+      //   document.querySelector(".result").innerHTML =
+      //     "Oh dear! Your score of " +
+      //     popped +
+      //     " didn't beat the high score of " +
+      //     highScore;
+      // }
     } else {
       document.querySelector(".result").innerHTML =
         "Oh dear! Your score of " +
         popped +
-        " didn't beat the high score of " +
+        "didn't beat the high score of " +
         highScore;
     }
     document.querySelector(".result").style.display = "block";
