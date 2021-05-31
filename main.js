@@ -112,4 +112,5 @@ let timer = setInterval(() => {
   }
 }, 1000);
 
+// setupStartGameEventListener();
 setupStartGameEventListener();
