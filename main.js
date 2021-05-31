@@ -55,7 +55,7 @@ const clickedBalloon = (event) => {
   event.target.style.background = colour;
 };
 
-// RESTART EVENT LISTENER -> RESTARTING THE GAME BY CLICKING -> SELECTING RESTART CLASS AND ADDING A CLICK EVENT -> WHEN ITS CLICKED -> DISPLAY WILL BE NONE AND BALLOON WILL DISPLAY
+// // RESTART EVENT LISTENER -> RESTARTING THE GAME BY CLICKING -> SELECTING RESTART CLASS AND ADDING A CLICK EVENT -> WHEN ITS CLICKED -> DISPLAY WILL BE NONE AND BALLOON WILL DISPLAY
 const setupRestartEventListener = () => {
   document.querySelector(".restart").addEventListener("click", (e) => {
     document.querySelector(".restart").style.display = "none";
@@ -77,7 +77,7 @@ const setTimer = () => {
   let target = new Date();
   target.setSeconds(target.getSeconds() + 10);
 
-  let timer = setInterval(function () {
+  let timer = setInterval(() => {
     let now = new Date().getTime();
     let distance = target - now;
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
