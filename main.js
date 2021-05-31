@@ -1,8 +1,7 @@
 // DECLARATION OF VARIABLES
-
 let popped = 0;
 let highScore = -1;
-let balloonColours = [
+let baloonColours = [
   "#5979a6",
   "#8882c9",
   "#66cc86",
@@ -16,46 +15,47 @@ let balloonColours = [
   "#b5da5d",
   "#74e27a",
   "#a07ae6",
-]; // ADDED AN ARRAY OF BALLOON COLOURS
+]; //DECLARED AN ARRAY OF COLOURS FOR DIFFERENT COLOURED BALLOONS TO APPEAR
 
-// ADDING EVENT LISTENER FOR STARTING THE GAME -> BY SELECTING CLASSES(START, BALLOON) -> BY DISPLAYING START AS NONE AND BALLOON WILL APPEAR AS BLOCK
+// CREATED SETUPSTARTGAMEEVENTLISTENER -> ADDED AN EVENT BY SELECTING CLASS START, BALLOON AND DISPLAYING IT TO NONE AND BLOCK
 const setupStartGameEventListener = () => {
   document.querySelector(".start").addEventListener("click", (e) => {
     document.querySelector(".start").style.display = "none";
     document.querySelector(".balloon").style.display = "block";
-    startGame(); //CALLING START GAME FUNCTION
+    startGame(); //CALLING STARTGAME FUNCTION
   });
 };
 
-// STARTGAME FUNCTION -> BALLOON EVENTS(FOR BALLOONS TO BE POPPED), RESTART EVENT(FOR RESTARTING THE GAME), SET TIMER -> TIME LIMIT FOR THE BALLOONS
+// CREATED STARTGAME FUNCTION -> SETUPBALLOONEVENTLISTENER -> SETUPRESTARTEVENTLISTENER -> SETTIMER
 const startGame = () => {
   setupBalloonEventListener();
   setupRestartEventListener();
   setTimer();
 };
 
-// BALLOON EVENT LISTENER -> FOR BALLOONS TO BE POPPED
+// SETUPBALLOONEVENTLISTENER -> ADDED AN EVENT BY SELECTING BALLOON CLASS BY CLICKING
 const setupBalloonEventListener = () => {
   document.querySelector(".balloon").addEventListener("click", (event) => {
-    popped++;
-    clickedBalloon(event); // CLICKED BALLOON FUNCTION
+    popped++; //
+    clickedBalloon(event); //CALLING CLICKEDBALLOON FUNCTION
   });
 };
 
-// CLICKED BALLOON FUNCTION ->
+// CLICKEDBALLOON FUNCTION ->
 const clickedBalloon = (event) => {
-  let top = Math.floor(Math.random() * 501);
-  let left = Math.floor(Math.random() * 501);
+  let top = Math.floor(Math.random() * 501); //USING RANDOM METHOD TO PLACE BALLOON BETWEEN 0 TO 500 - MARGIN TOP
+  let left = Math.floor(Math.random() * 501); //USING RANDOM METHOD TO PLACE BALLOON BETWEEN 0 TO 500 - MARGIN LEFT
 
-  document.querySelector(".balloon").style.top = top + "px";
+  document.querySelector(".balloon").style.top = top + "px"; //
   document.querySelector(".balloon").style.left = left + "px";
 
-  let colourIndex = Math.floor(Math.random() * 13);
-  let colour = balloonColours[colourIndex];
-  event.target.style.background = colour;
+  let colourIndex = Math.floor(Math.random() * 13); // CREATED A VARIABLE WHERE RANDOM METHOD IS USED BETEEN 0 TO 13
+  let colour = balloonColours[colourIndex]; //CALLING ARRAY COLOURS
+  event.target.style.background = colour; //CHANGING THE BACKGROUND COLOR
 };
 
-// // RESTART EVENT LISTENER -> RESTARTING THE GAME BY CLICKING -> SELECTING RESTART CLASS AND ADDING A CLICK EVENT -> WHEN ITS CLICKED -> DISPLAY WILL BE NONE AND BALLOON WILL DISPLAY
+//SETUPRESTARTEVENTLISTENER FUNCTION -> SELECTING RESTART CLASS AND BALLOON CLASS AND  ADDING EVENT LISTENERS, DISPLAYING IT TO BE NONE AND INLINE-BLOCK
+
 const setupRestartEventListener = () => {
   document.querySelector(".restart").addEventListener("click", (e) => {
     document.querySelector(".restart").style.display = "none";
@@ -64,7 +64,7 @@ const setupRestartEventListener = () => {
   });
 };
 
-// RESTART FUNCTION -> DISPLAY WILL BE NONE AND COUNTDOWN WILL APPEAR
+// RESTART FUNCTION
 const restart = () => {
   popped = 0;
   document.querySelector(".result").style.display = "none";
@@ -72,45 +72,40 @@ const restart = () => {
   setTimer();
 };
 
-// // SET TIMER FUNCTION ->
-
+// SETTIMER FUNCTION
 const setTimer = () => {
-  let target = new Date();
-  target.setSeconds(target.getSeconds() + 10);
+  let target = new Date(); //CALLING DATE INBUILT METHOD
+  target.setSeconds(target.getSeconds() + 10); //CALLING SETSECONDS AND GETSECONDS METHOD TO SET THE TARGET TIME = 10
+
+  let timer = setInterval(() => {
+    //CREATING TIMER FUNCTION
+    let now = new Date().getTime(); //CALLING NEW DATE AND GET TIME METHODS
+    let distance = target - now; // TARGET TIME AND CURRENT TIME IS DISTANCE
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000); //CREATING A VARIABLE AND STORING THE SECONDS REMAINED
+    document.querySelector(".countdown").innerHTML = seconds + " seconds left";
+
+    // IF STATEMENTS WHETHER TO CHECK THE SCORE IS HIGHER OR NOT
+    if (distance < 0) {
+      document.querySelector(".balloon").style.display = "none";
+      document.querySelector(".countdown").style.display = "none";
+
+      if (popped > highScore) {
+        document.querySelector(".result").innerHTML =
+          "Congratulations! You scored a new high of " + popped;
+        highScore = popped;
+      } else {
+        document.querySelector(".result").innerHTML =
+          "Oh dear! Your score of " +
+          popped +
+          " didn't beat the high score of " +
+          highScore;
+      }
+      document.querySelector(".result").style.display = "block";
+      document.querySelector(".restart").style.display = "block";
+
+      clearInterval(timer); //USED INBUILT TO CLEAR THE TIMER
+    }
+  }, 1000);
 };
 
-let timer = setInterval(() => {
-  let now = new Date().getTime();
-  let distance = target - now;
-  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.querySelector(".countdown").innerHTML = seconds + "seconds left";
-
-  if (distance < 0) {
-    document.querySelector(".balloon").style.display = "none";
-    document.querySelector(".countdown").style.display = "none";
-
-    if (popped > highScore) {
-      document.querySelector(".result").innerHTML =
-        "Congratulations! You scored a new high of " + popped;
-      highScore = popped;
-    } else {
-      document.querySelector(".result").innerHTML =
-        "Oh dear! Your score of " +
-        popped +
-        "didn't beat the high score of " +
-        highScore;
-    }
-    // document.querySelector(".result").style.display = "block";
-    // document.querySelector(".restart").style.display = "block";
-    document.querySelector(".result").style.display = "block";
-    document.querySelector(".restart").style.display = "block";
-
-    //     clearInterval(timer);
-    //   }
-    // }, 1000);
-    clearInterval(timer);
-  }
-}, 1000);
-
-// setupStartGameEventListener();
 setupStartGameEventListener();
