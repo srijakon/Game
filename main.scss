@@ -1,111 +1,49 @@
 body {
   margin: 20px;
-  background-image: url("./color.jpg");
+  background: url("./image.png");
   text-align: center;
   font-family: sans-serif;
   padding: 30px;
+  background: #ededed;
 }
 
 h1 {
   margin: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-transform: lowercase;
-  text-decoration: wavy;
-  font-style: italic;
-  font-weight: lighter;
-  font-variant: normal;
-  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #08a3d9;
+  text-transform: uppercase;
+  font-size: 30px;
+  color: #000380;
 }
 
 .balloon {
-  display: inline-block;
   width: 80px;
   height: 95px;
-  background: hsl(215, 50%, 65%);
+  background: #799ed2;
   border-radius: 80%;
   position: relative;
+  display: none;
+  box-shadow: inset -10px -10px 0 rgba(206, 156, 156, 0.07);
   margin: 20px 30px;
   transition: transform 0.5s ease;
   z-index: 9;
-  animation: balloons 5s ease-in-out infinite;
+  animation: balloons 3s ease-in-out infinite;
+  transform-origin: bottom center;
 }
 
+.restart {
+  display: none;
+}
+.result {
+  display: none;
+}
 @keyframes balloons {
   0%,
   100% {
-    transform: translateY() rotate(-3deg);
+    transform: translateY(0) rotate(-4deg);
   }
   50% {
     transform: translateY(-25px) rotate(4deg);
   }
-}
-
-.balloon:before {
-  content: "▲";
-  font-size: 20px;
-  color: hsl(215, 30%, 50%);
-  display: block;
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  bottom: -20px;
-  z-index: -100;
-}
-
-.balloon:nth-child(2) {
-  background: hsl(245, 40%, 65%);
-  animation-duration: 5s;
-}
-
-.balloon:nth-child(3) {
-  background: hsl(139, 50%, 60%);
-  animation-duration: 5s;
-}
-
-.balloon:nth-child(4) {
-  background: hsl(59, 50%, 68%);
-  animation-duration: 5s;
-}
-
-.balloon:nth-child(5) {
-  color: hsl(23, 44%, 46%);
-  animation-duration: 5s;
-}
-
-.balloon:nth-child(6) {
-  color: hsl(177, 39%, 56%);
-  animation-duration: 5s;
-}
-.balloon:nth-child(7) {
-  background: hsl(19, 86%, 59%);
-  animation-duration: 5s;
-}
-
-.balloon:nth-child(8) {
-  background: hsl(303, 26%, 52%);
-  animation-duration: 5s;
-}
-
-.balloon:nth-child(9) {
-  background: hsl(345, 42%, 51%);
-  animation-duration: 5s;
-}
-
-.balloon:nth-child(10) {
-  background: hsl(0, 86%, 61%);
-  animation-duration: 5s;
-}
-
-.balloon:nth-child(11) {
-  background: hsl(78, 63%, 61%);
-  animation-duration: 5s;
-}
-.balloon:nth-child(12) {
-  background: hsl(123, 65%, 67%);
-  animation-duration: 5s;
-}
-.balloon:nth-child(13) {
-  background: hsl(261, 68%, 69%);
-  animation-duration: 5s;
 }
