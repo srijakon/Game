@@ -1,3 +1,5 @@
+// DECLARATION OF VARIABLES
+
 let popped = 0;
 let highScore = -1;
 let balloonColours = [
@@ -14,29 +16,33 @@ let balloonColours = [
   "#b5da5d",
   "#74e27a",
   "#a07ae6",
-];
+]; // ADDED AN ARRAY OF BALLOON COLOURS
 
+// ADDING EVENT LISTENER FOR STARTING THE GAME -> BY SELECTING CLASSES(START, BALLOON) -> BY DISPLAYING START AS NONE AND BALLOON WILL APPEAR AS BLOCK
 const setupStartGameEventListener = () => {
   document.querySelector(".start").addEventListener("click", (e) => {
     document.querySelector(".start").style.display = "none";
     document.querySelector(".balloon").style.display = "block";
-    startGame();
+    startGame(); //CALLING START GAME FUNCTION
   });
 };
 
+// STARTGAME FUNCTION -> BALLOON EVENTS(FOR BALLOONS TO BE POPPED), RESTART EVENT(FOR RESTARTING THE GAME), SET TIMER -> TIME LIMIT FOR THE BALLOONS
 const startGame = () => {
   setupBalloonEventListener();
   setupRestartEventListener();
   setTimer();
 };
 
+// BALLOON EVENT LISTENER -> FOR BALLOONS TO BE POPPED
 const setupBalloonEventListener = () => {
   document.querySelector(".balloon").addEventListener("click", (event) => {
     popped++;
-    clickedBalloon(event);
+    clickedBalloon(event); // CLICKED BALLOON FUNCTION
   });
 };
 
+// CLICKED BALLOON FUNCTION ->
 const clickedBalloon = (event) => {
   let top = Math.floor(Math.random() * 501);
   let left = Math.floor(Math.random() * 501);
@@ -49,21 +55,24 @@ const clickedBalloon = (event) => {
   event.target.style.background = colour;
 };
 
+// RESTART EVENT LISTENER -> RESTARTING THE GAME BY CLICKING -> SELECTING RESTART CLASS AND ADDING A CLICK EVENT -> WHEN ITS CLICKED -> DISPLAY WILL BE NONE AND BALLOON WILL DISPLAY
 const setupRestartEventListener = () => {
   document.querySelector(".restart").addEventListener("click", (e) => {
     document.querySelector(".restart").style.display = "none";
     document.querySelector(".balloon").style.display = "inline-block";
-    restart();
+    restart(); //CALLING RESTART FUNCTION
   });
 };
 
+// RESTART FUNCTION -> DISPLAY WILL BE NONE AND COUNTDOWN WILL APPEAR
 const restart = () => {
-  popped = 0;
+  popped = 0; //DECLARING POPPED AS 0
   document.querySelector(".result").style.display = "none";
   document.querySelector(".countdown").style.display = "block";
-  setTimer();
+  setTimer(); //CALLING SET TIMER FUNCTION
 };
 
+// SET TIMER FUNCTION ->
 const setTimer = () => {
   let target = new Date();
   target.setSeconds(target.getSeconds() + 10);
