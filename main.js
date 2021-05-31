@@ -70,19 +70,16 @@ const restart = () => {
   document.querySelector(".result").style.display = "none";
   document.querySelector(".countdown").style.display = "block";
   setTimer();
-} 
-// const restart = () => {
-//   popped = 0; //DECLARING POPPED AS 0
-//   document.querySelector(".result").style.display = "none";
-//   document.querySelector(".countdown").style.display = "block";
-//   setTimer(); //CALLING SET TIMER FUNCTION
-// };
+}; 
 
 // // SET TIMER FUNCTION ->
 // const setTimer = () => {
 //   let target = new Date();
 //   target.setSeconds(target.getSeconds() + 10);
-
+const setTimer = () => {
+  let target = new Date();
+  target.setSeconds(target.getSeconds() + 10);
+}
   let timer = setInterval(() => {
     let now = new Date().getTime();
     let distance = target - now;
