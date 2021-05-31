@@ -93,13 +93,6 @@ let timer = setInterval(() => {
       document.querySelector(".result").innerHTML =
         "Congratulations! You scored a new high of " + popped;
       highScore = popped;
-      // } else {
-      //   document.querySelector(".result").innerHTML =
-      //     "Oh dear! Your score of " +
-      //     popped +
-      //     " didn't beat the high score of " +
-      //     highScore;
-      // }
     } else {
       document.querySelector(".result").innerHTML =
         "Oh dear! Your score of " +
@@ -107,6 +100,8 @@ let timer = setInterval(() => {
         "didn't beat the high score of " +
         highScore;
     }
+    // document.querySelector(".result").style.display = "block";
+    // document.querySelector(".restart").style.display = "block";
     document.querySelector(".result").style.display = "block";
     document.querySelector(".restart").style.display = "block";
 
