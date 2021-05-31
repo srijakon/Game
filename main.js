@@ -85,13 +85,14 @@ let timer = setInterval(() => {
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
   document.querySelector(".countdown").innerHTML = seconds + "seconds left";
 
-  // if (distance < 0) {
-  //   document.querySelector(".balloon").style.display = "none";
-  //   document.querySelector(".countdown").style.display = "none";
   if (distance < 0) {
     document.querySelector(".balloon").style.display = "none";
     document.querySelector(".countdown").style.display = "none";
 
+    // if (popped > highScore) {
+    //   document.querySelector(".result").innerHTML =
+    //     "Congratulations! You scored a new high of " + popped;
+    //   highScore = popped;
     if (popped > highScore) {
       document.querySelector(".result").innerHTML =
         "Congratulations! You scored a new high of " + popped;
