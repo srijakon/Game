@@ -70,43 +70,45 @@ const restart = () => {
   document.querySelector(".result").style.display = "none";
   document.querySelector(".countdown").style.display = "block";
   setTimer();
-}; 
+};
 
 // // SET TIMER FUNCTION ->
-// const setTimer = () => {
-//   let target = new Date();
-//   target.setSeconds(target.getSeconds() + 10);
+
 const setTimer = () => {
   let target = new Date();
   target.setSeconds(target.getSeconds() + 10);
-}
-  let timer = setInterval(() => {
-    let now = new Date().getTime();
-    let distance = target - now;
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    document.querySelector(".countdown").innerHTML = seconds + " seconds left";
-
-    if (distance < 0) {
-      document.querySelector(".balloon").style.display = "none";
-      document.querySelector(".countdown").style.display = "none";
-
-      if (popped > highScore) {
-        document.querySelector(".result").innerHTML =
-          "Congratulations! You scored a new high of " + popped;
-        highScore = popped;
-      } else {
-        document.querySelector(".result").innerHTML =
-          "Oh dear! Your score of " +
-          popped +
-          " didn't beat the high score of " +
-          highScore;
-      }
-      document.querySelector(".result").style.display = "block";
-      document.querySelector(".restart").style.display = "block";
-
-      clearInterval(timer);
-    }
-  }, 1000);
 };
+// let timer = setInterval(() => {
+//   let now = new Date().getTime();
+//   let distance = target - now;
+//   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+//   document.querySelector(".countdown").innerHTML = seconds + " seconds left";
+let timer = setInterval(() => {
+  let now = new Date().getTime();
+  let distance = target - now;
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.querySelector(".countdown").innerHTML = seconds + "seconds left";
+
+  if (distance < 0) {
+    document.querySelector(".balloon").style.display = "none";
+    document.querySelector(".countdown").style.display = "none";
+
+    if (popped > highScore) {
+      document.querySelector(".result").innerHTML =
+        "Congratulations! You scored a new high of " + popped;
+      highScore = popped;
+    } else {
+      document.querySelector(".result").innerHTML =
+        "Oh dear! Your score of " +
+        popped +
+        " didn't beat the high score of " +
+        highScore;
+    }
+    document.querySelector(".result").style.display = "block";
+    document.querySelector(".restart").style.display = "block";
+
+    clearInterval(timer);
+  }
+}, 1000);
 
 setupStartGameEventListener();
