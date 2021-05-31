@@ -78,17 +78,16 @@ const setTimer = () => {
   let target = new Date();
   target.setSeconds(target.getSeconds() + 10);
 };
-// let timer = setInterval(() => {
-//   let now = new Date().getTime();
-//   let distance = target - now;
-//   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-//   document.querySelector(".countdown").innerHTML = seconds + " seconds left";
+
 let timer = setInterval(() => {
   let now = new Date().getTime();
   let distance = target - now;
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
   document.querySelector(".countdown").innerHTML = seconds + "seconds left";
 
+  // if (distance < 0) {
+  //   document.querySelector(".balloon").style.display = "none";
+  //   document.querySelector(".countdown").style.display = "none";
   if (distance < 0) {
     document.querySelector(".balloon").style.display = "none";
     document.querySelector(".countdown").style.display = "none";
